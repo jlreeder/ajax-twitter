@@ -17,18 +17,16 @@ class FollowToggle {
   handleClick(event) {
     event.preventDefault();
     if (this.followState === 'unfollowed') {
-      // debugger
-      APIUtil.followUser(this.userId).then( () => {
-        this._toggleState();
-        this.render();
-      });
+      APIUtil.followUser(this.userId).then(this.successActions());
     } else {
-      APIUtil.unfollowUser(this.userId).then( () => {
-        this._toggleState();
-        this.render();
-      });
+      APIUtil.unfollowUser(this.userId).then(this.successActions());
     }
   }
+
+  successActions() {
+   this._toggleState();
+   this.render();
+ }
 
   _toggleState() {
     this.followState = this.followState === "unfollowed" ?
