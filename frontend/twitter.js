@@ -1,10 +1,12 @@
 const FollowToggle = require('./follow_toggle.js');
+const UsersSearch = require('./users_search.js');
 
 $(() => {
   $(".follow-toggle").each((idx, el) => {
+    new FollowToggle(el);
+  });
 
-    let buttonState = new FollowToggle(el);
-    console.log(el);
-    console.log(buttonState);
+  $(".users-search").each((idx, el) => {
+    console.log(new UsersSearch(el));
   });
 });
